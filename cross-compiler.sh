@@ -23,7 +23,7 @@ mv include /usr/cross-freebsd/x86_64-unknown-freebsd13/
 wget https://ftp.gnu.org/gnu/binutils/binutils-2.36.tar.bz2
 tar jxf binutils-2.36.tar.bz2 && rm binutils-2.36.tar.bz2
 cd binutils-2.36
-./configure --with-sysroot=/home/ubuntu/Projects/freebsd-cross-compiler/base/ --enable-libssp --enable-gold --enable-ld --target=x86_64-unknown-freebsd13 --prefix=/usr/cross-freebsd
+./configure --with-sysroot=~/freebsd-cross-compiler/base/ --enable-libssp --enable-gold --enable-ld --target=x86_64-unknown-freebsd13 --prefix=/usr/cross-freebsd
 gmake
 gmake install
 
@@ -60,7 +60,7 @@ wget https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.gz
 tar -xf gcc-11.1.0.tar.gz && rm gcc-11.1.0.tar.gz
 mkdir objdir
 cd objdir
-../gcc-11.1.0/configure --without-headers --with-sysroot=/home/ubuntu/Projects/freebsd-cross-compiler/base/ --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --disable-nls --enable-libssp --enable-gold --enable-ld --target=x86_64-unknown-freebsd13 --prefix=/usr/cross-freebsd --with-gmp=/usr/cross-freebsd --with-mpc=/usr/cross-freebsd --with-mpfr=/usr/cross-freebsd --disable-libgomp
+../gcc-11.1.0/configure --without-headers --with-sysroot=~/freebsd-cross-compiler/base/ --with-gnu-as --with-gnu-ld --enable-languages=c,c++ --disable-nls --enable-libssp --enable-gold --enable-ld --target=x86_64-unknown-freebsd13 --prefix=/usr/cross-freebsd --with-gmp=/usr/cross-freebsd --with-mpc=/usr/cross-freebsd --with-mpfr=/usr/cross-freebsd --disable-libgomp
 LD_LIBRARY_PATH=/usr/cross-freebsd/lib gmake
 gmake install
 
